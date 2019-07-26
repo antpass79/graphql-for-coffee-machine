@@ -1,0 +1,4 @@
+<div class="drink-option">
+  <button class="drink-button" [disabled]="!drink.available" (click)="onClick()">{{drink.name}}</button>
+  <div class="drink-alert" [class.unavailable]="!drink.available"></div>
+</div>

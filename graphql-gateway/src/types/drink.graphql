@@ -1,0 +1,8 @@
+type Drink {
+    id: ID!
+    name: String!
+    sugar: Int,
+    milk: Boolean,
+    coffee: Boolean,
+    
+}

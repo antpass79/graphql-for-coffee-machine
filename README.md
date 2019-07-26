@@ -1,2 +1,3 @@
-# graphql-for-coffee-machine
-graphql example with angular, nodejs and aspnet.core
+# GraphQl for Coffee Machine
+
+GraphQL example with Angular, Node.js and Asp.Net Core

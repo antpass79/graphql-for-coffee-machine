@@ -1,0 +1,6 @@
+<div class="coffee-machine">
+  <div *ngFor="let drink of drinks">
+    <drink-option class="drink-option" [drink]="drink" (drinkRequested)="onDrinkRequested($event)"></drink-option>
+  </div>
+  <drink-ready></drink-ready>
+</div>
