@@ -1,3 +1,11 @@
-<p>
-  drink-ready works!
-</p>
+<div class="drink-ready">
+  <label *ngIf="!coffeeReady && !coffeeMachineReady">Coffee in Progress...</label>
+  <div *ngIf="coffeeReady && !coffeeMachineReady">
+    <label>Coffee Ready - Take It!</label>
+  </div>
+  <label *ngIf="coffeeMachineReady">Coffee Machine Ready</label>
+  <div class="coffee-ready" *ngIf="coffee">
+    <img class="image" src="/src/assets/coffee-ready.jpg" (click)="onTakeIt()" />
+    <pre>{{coffee | json}}</pre>
+  </div>
+</div>

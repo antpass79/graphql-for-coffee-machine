@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { Drink } from '../models/drink';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Coffee } from '../types/coffee';
 
 @Component({
   selector: 'drink-option',
@@ -8,17 +8,18 @@ import { Drink } from '../models/drink';
 })
 export class DrinkOptionComponent implements OnInit {
 
-  drinkRequested: EventEmitter<Drink> = new EventEmitter<Drink>();
+  @Output()
+  drinkRequested: EventEmitter<Coffee> = new EventEmitter<Coffee>();
 
   constructor() { }
 
   @Input()
-  drink: Drink;
+  coffee: Coffee;
 
   ngOnInit() {
   }
 
   onClick() {
-    this.drinkRequested.emit(this.drink);
+    this.drinkRequested.emit(this.coffee);
   }
 }

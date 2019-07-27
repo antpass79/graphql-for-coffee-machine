@@ -1,6 +1,10 @@
 import { Server } from './server';
+import path from 'path';
 
-const port = process.env.LISTEN_PORT || 2000;
+import { NodeConfig } from './utilities/node-config';
 
+NodeConfig.init(path.join(__dirname, '../assets/config.json'));
+
+const port = NodeConfig.getValue('SERVER_PORT');
 let server = new Server(port);
 server.start();

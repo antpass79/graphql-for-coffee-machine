@@ -5,6 +5,19 @@
     align-items: center;
 }
 
+.options {
+    overflow-y: auto;
+}
+
 .drink-option {
     margin: 50px;
+}
+
+.drink-ready {
+    margin: 3px;
+}
+
+.disable {
+    pointer-events: none;
+    opacity: 0.5;
 }

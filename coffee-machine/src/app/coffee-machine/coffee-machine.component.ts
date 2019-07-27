@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Drink } from '../models/drink';
+import { Coffee } from '../types/coffee';
+import { CoffeeService } from '../services/coffee.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'coffee-machine',
@@ -8,42 +10,59 @@ import { Drink } from '../models/drink';
 })
 export class CoffeeMachineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private coffeeService: CoffeeService) { }
 
-  drinks = [];
+  coffees$:  Observable<Coffee[]>;
+  selectedCoffee: Coffee;
+
+  price: number;
+  coins: number = 0;
+  sugar: number = 3;
+
+  coffeeReady: boolean = false;
+  coffeeMachineReady: boolean = true;
+
+  private timeoutHandle: any;
 
   ngOnInit() {
-
-    this.drinks = [
-      {
-        type: 0,
-        name: "Coffe",
-        available: true
-      },
-      {
-        type: 1,
-        name: "Cappuccino",
-        available: true
-      },
-      {
-        type: 2,
-        name: "Ginsen",
-        available: false
-      },
-      {
-        type: 3,
-        name: "The",
-        available: true
-      },
-      {
-        type: 4,
-        name: "Chocolate",
-        available: false
-      }
-    ]
+      this.coffees$ = this.coffeeService.getCoffees();
   }
 
-  onDrinkRequested(drink: Drink) {
-    
+  onCoinsChange(coins: number) {
+    this.coins = coins;
+  }
+
+  onSugarChange(sugar: number) {
+    this.sugar = sugar;
+  }
+
+  onCoffeeRequested(coffee: Coffee) {
+    this.coffeeService.getPrice(coffee.name).subscribe((price: number) => {
+      this.price = price;
+
+      if (this.coins == 0) {
+        clearTimeout(this.timeoutHandle);
+        this.timeoutHandle = setTimeout(() => {
+          this.price = undefined;
+        }, 2000);
+      }
+      else if (price <= this.coins) {
+  
+        this.coins = 0;
+        this.coffeeReady = false;
+        this.coffeeMachineReady = false;
+        this.coffeeService.prepareCoffee(coffee.name, this.sugar, this.coins).subscribe((coffee: Coffee) => {
+  
+          this.selectedCoffee = coffee;
+          this.coffeeReady = true;
+        });
+      }  
+    });
+  }
+
+  onTakeIt() {
+    this.selectedCoffee = null;
+    this.coffeeReady = false;
+    this.coffeeMachineReady = true;
   }
 }

@@ -1,0 +1,14 @@
+.coffee-ready {
+    display: flex;
+}
+
+.image {
+    display: flex;
+    align-self: center;
+    opacity: 0.3;
+    height: 100px;
+}
+
+.image:hover {
+    opacity: 0.5;
+}

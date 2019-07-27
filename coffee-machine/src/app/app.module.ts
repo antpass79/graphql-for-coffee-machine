@@ -9,11 +9,15 @@ import { AppComponent } from './app.component';
 import { CoffeeMachineComponent } from './coffee-machine/coffee-machine.component';
 import { DrinkOptionComponent } from './drink-option/drink-option.component';
 import { DrinkReadyComponent } from './drink-ready/drink-ready.component';
+import { InsertCoinsComponent } from './insert-coins/insert-coins.component';
+import { ChooseSugarComponent } from './choose-sugar/choose-sugar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoffeeMachineComponent,
+    InsertCoinsComponent,
+    ChooseSugarComponent,
     DrinkOptionComponent,
     DrinkReadyComponent
   ],
@@ -23,18 +27,19 @@ import { DrinkReadyComponent } from './drink-ready/drink-ready.component';
     HttpLinkModule,
     HttpClientModule
   ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory: (httpLink: HttpLink) => {
-      return {
-        cache: new InMemoryCache(),
-        link: httpLink.create({
-          uri: "http://localhost/coffeemachine/drink"
-        })
-      }
-    },
-    deps: [HttpLink]
-  }],
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: "http://localhost:2000/coffee-machine/graphql"
+          })
+        }
+      },
+      deps: [HttpLink]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,6 @@
+{
+    "SERVER_PORT": 2000,
+    "ORIGINS_WHITE_LIST": [
+        "http://localhost:4200"
+    ]
+}

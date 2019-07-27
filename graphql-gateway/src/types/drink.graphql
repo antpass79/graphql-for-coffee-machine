@@ -1,8 +1,19 @@
+type Coffee {
+    id: ID!
+    name: string!
+    sugar: Int
+    milk: Int
+}
+
+type Glass {
+    size: Int!
+    stick: Boolean
+}
+
 type Drink {
     id: ID!
     name: String!
     sugar: Int,
     milk: Boolean,
     coffee: Boolean,
-    
 }
