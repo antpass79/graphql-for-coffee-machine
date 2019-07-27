@@ -1,0 +1,28 @@
+<div class="coffee-dashboard" [class.disable]="coffeeInCreation">
+  <h3>Customize your Coffee</h3>
+  <div class="section">
+    <label>Name</label>
+    <input type="text" (change)="onNameChange($event)" />
+  </div>
+  <div class="section">
+    <label>Coffee Powder</label>
+    <range-selector [(value)]="coffeePowderValue" [cleatNumber]="3"></range-selector>
+  </div>
+  <div class="section">
+    <label>Milk</label>
+    <range-selector [(value)]="milkValue" [cleatNumber]="3"></range-selector>
+  </div>
+  <div class="section">
+    <label>Sugar</label>
+    <range-selector [(value)]="sugarValue" [cleatNumber]="5"></range-selector>
+  </div>
+  <div class="section">
+    <label>Price {{priceCalculatedValue}}</label>
+    <range-selector [value]="priceValue" [cleatNumber]="5" (valueChange)="onPriceChange($event)"></range-selector>
+  </div>
+  <div>
+      <input type="checkbox" [checked]="available" (change)="onAvailableChange($event)" />
+      <label>Available</label>
+    </div>
+  <button type="submit" (click)="onCreate()">Create your Coffee</button>
+</div>

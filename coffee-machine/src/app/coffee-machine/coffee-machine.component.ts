@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Coffee } from '../types/coffee';
+import { Coffee } from '../graphql/coffee';
 import { CoffeeService } from '../services/coffee.service';
 import { Observable } from 'rxjs';
 

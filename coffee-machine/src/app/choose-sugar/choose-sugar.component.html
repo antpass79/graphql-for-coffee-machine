@@ -1,8 +1,4 @@
 <div class="choose-sugar">
   <label class="title">Sugar</label>
-  <button (click)="onDecrease()" [disabled]="!canDecrease()">Less</button>
-  <div *ngFor="let cleat of cleats">
-    <div class="cleat" [ngStyle]="{background: cleat.color}"></div>
-  </div>
-  <button (click)="onIncrease()" [disabled]="!canIncrease()">More</button>
+  <range-selector [value]="3" [cleatNumber]="5" (valueChange)="onValueChange($event)"></range-selector>
 </div>

@@ -7,7 +7,7 @@ So what I wanted were 2 things:
 
 - querying a subset of data
 - managing different sources
-- mutating some data
+- mutating data
 - handling subscriptions
 
 For the moment the above aims can be enough.
@@ -16,5 +16,6 @@ For the moment the above aims can be enough.
 
 Coffee Machine has different components:
 
-- coffee-machine is the front end
+- coffee-machine is the front for taking coffee
+- coffee-dashboard is the front end for creating custom coffee
 - graph-gateway manages data from queries and mutations

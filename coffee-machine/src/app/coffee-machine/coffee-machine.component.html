@@ -1,10 +1,11 @@
 <div class="coffee-machine">
+  <h3>Choose your Coffee</h3>
   <insert-coins [coins]="coins" (coinsChange)="onCoinsChange($event)"></insert-coins>
   <choose-sugar (sugarChange)="onSugarChange($event)"></choose-sugar>
   <label>Price <span *ngIf="price">{{price}}</span></label>
   <div class="options" [class.disable]="!coffeeMachineReady">
-    <div *ngFor="let coffee of coffees$ | async">
-      <drink-option class="drink-option" [coffee]="coffee" (drinkRequested)="onCoffeeRequested($event)"></drink-option>
+    <div class="drink-option" *ngFor="let coffee of coffees$ | async">
+      <drink-option [coffee]="coffee" (drinkRequested)="onCoffeeRequested($event)"></drink-option>
     </div>
   </div>
   <drink-ready [coffee]="selectedCoffee" [coffeeReady]="coffeeReady" [coffeeMachineReady]="coffeeMachineReady" (takeIt)="onTakeIt()"></drink-ready>

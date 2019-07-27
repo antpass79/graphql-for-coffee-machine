@@ -1,0 +1,15 @@
+.range-selector {
+    display: flex;
+}
+
+.title {
+    display: flex;
+    align-self: center;
+    margin: 3px;
+}
+
+.cleat {
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+}

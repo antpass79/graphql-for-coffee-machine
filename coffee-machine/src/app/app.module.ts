@@ -11,6 +11,8 @@ import { DrinkOptionComponent } from './drink-option/drink-option.component';
 import { DrinkReadyComponent } from './drink-ready/drink-ready.component';
 import { InsertCoinsComponent } from './insert-coins/insert-coins.component';
 import { ChooseSugarComponent } from './choose-sugar/choose-sugar.component';
+import { CoffeeDashboardComponent } from './coffee-dashboard/coffee-dashboard.component';
+import { RangeSelectorComponent } from './range-selector/range-selector.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ChooseSugarComponent } from './choose-sugar/choose-sugar.component';
     InsertCoinsComponent,
     ChooseSugarComponent,
     DrinkOptionComponent,
-    DrinkReadyComponent
+    DrinkReadyComponent,
+    CoffeeDashboardComponent,
+    RangeSelectorComponent
   ],
   imports: [
     BrowserModule,

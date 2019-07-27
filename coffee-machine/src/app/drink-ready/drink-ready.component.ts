@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Coffee } from '../types/coffee';
+import { Coffee } from '../graphql/coffee';
 
 @Component({
   selector: 'drink-ready',
@@ -22,6 +22,10 @@ export class DrinkReadyComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onTakeACoffee() {
+    alert("Take a Coffee Please!");
   }
 
   onTakeIt() {

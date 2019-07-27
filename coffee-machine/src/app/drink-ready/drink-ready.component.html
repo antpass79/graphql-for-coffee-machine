@@ -4,6 +4,7 @@
     <label>Coffee Ready - Take It!</label>
   </div>
   <label *ngIf="coffeeMachineReady">Coffee Machine Ready</label>
+  <img class="image" *ngIf="!coffee" src="/src/assets/coffee-waiting.jpg" (click)="onTakeACoffee()" />
   <div class="coffee-ready" *ngIf="coffee">
     <img class="image" src="/src/assets/coffee-ready.jpg" (click)="onTakeIt()" />
     <pre>{{coffee | json}}</pre>

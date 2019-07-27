@@ -3,6 +3,7 @@ export interface Coffee {
     available: boolean;
     sugar: number;
     milk: number;
+    coffeePowder: number;
     price: number;
 }
 
@@ -12,3 +13,6 @@ export type Query = {
     coffee: Coffee;
   }
   
+export type Mutation = {
+    create: Coffee
+}
