@@ -1,6 +1,6 @@
 # GraphQL for Coffee Machine
 
-GraphQL example with Angular, Node.js and AspNet Core
+GraphQL example with Angular, Node.js
 
 Thinking an easy program to learn GraphQL, when I was at work, in front of my friend, the coffee machine, I decided that my friend could be a good starting point for the goal.
 
