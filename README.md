@@ -20,12 +20,12 @@ Coffee Machine has the below components:
 - coffee-machine is the front end for taking coffee and adding custom coffee
 - graphql-gateway manages data from queries and mutations
 
-Currently there are 2 different sources inside the graphql gateway:
+Currently there are 2 different sources inside the graphql-gateway:
 
 - Default Coffees, managed by the default-coffee.service
 - Custom Coffees, managed byt the custom-coffee.service
 
-A possible and better solution is to move these services inside others components in order to have the gateway clean from specific sources.
+A possible and better solution is to move these services inside other components in order to have the gateway clean from specific sources.
 
 The gateway, through the resolver, should merge these sources.
 
