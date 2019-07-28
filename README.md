@@ -18,7 +18,7 @@ For the moment the above aims can be enough.
 Coffee Machine has the below components:
 
 - coffee-machine is the front end for taking coffee and adding custom coffee
-- graph-gateway manages data from queries and mutations
+- graphql-gateway manages data from queries and mutations
 
 Currently there are 2 different sources inside the graphql gateway:
 
