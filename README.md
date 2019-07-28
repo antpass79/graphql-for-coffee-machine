@@ -4,7 +4,7 @@ GraphQL example with Angular and Node.js
 
 Thinking an easy program to learn GraphQL, when I was at work, in front of my friend, the coffee machine, I decided that my friend could be a good starting point for the goal.
 
-So what I wanted were 2 things:
+So what I wanted were the following things:
 
 - querying a subset of data
 - managing different sources
