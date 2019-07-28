@@ -11,7 +11,7 @@
 
 .drink-button {
     flex: 1;
-    background: burlywood;
+    background: linear-gradient(to right top, #71542f, #764b22, #7b4017, #813210, #871e0f);
 }
 
 .drink-alert {
@@ -19,10 +19,18 @@
     margin: 3px;
     border: 1px solid gray;
     border-radius: 40px;
-    background: green;
+    background: linear-gradient(to right top, #0f660f, #2a891b, #44ae27, #61d432, #7ffb3c);
 }
 
-.unavailable {
-    background: red;
-    color: white;
+button {
+    color: lightgray;
+}
+
+.unavailable-circle {
+    background: linear-gradient(to right top, #b12b0f, #ba2a0e, #c3280c, #cc260b, #d52309);
+}
+
+.unavailable-button {
+    color: black;
+    text-decoration: line-through;
 }

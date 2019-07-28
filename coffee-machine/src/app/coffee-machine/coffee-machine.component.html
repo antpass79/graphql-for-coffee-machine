@@ -4,7 +4,7 @@
   <choose-sugar (sugarChange)="onSugarChange($event)"></choose-sugar>
   <label>Price <span *ngIf="price">{{price}}</span></label>
   <div class="options" [class.disable]="!coffeeMachineReady">
-    <div class="drink-option" *ngFor="let coffee of coffees$ | async">
+    <div class="drink-option" *ngFor="let coffee of coffees">
       <drink-option [coffee]="coffee" (drinkRequested)="onCoffeeRequested($event)"></drink-option>
     </div>
   </div>

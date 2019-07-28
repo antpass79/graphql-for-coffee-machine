@@ -1,5 +1,7 @@
 # GraphQL for the Coffee Machine - Client
 
+Try the Coffee Machine.
+
 ## Notes
 
 After installing Apollo for GraphQL management, I encountered the following error during build process:
@@ -19,3 +21,4 @@ To solve the problem set the below dependencies in package.json:
 - <https://www.apollographql.com/docs/angular/basics/setup/>
 - <https://code-maze.com/consuming-graphql-api-angular/>
 - <https://graphql-code-generator.com/docs/getting-started/>
+- <https://medium.com/naresh-bhatia/graphql-concepts-i-wish-someone-explained-to-me-a-year-ago-514d5b3c0eab>

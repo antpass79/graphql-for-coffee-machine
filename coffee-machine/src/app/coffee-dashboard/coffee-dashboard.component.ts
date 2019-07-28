@@ -55,12 +55,16 @@ export class CoffeeDashboardComponent {
       milk: this.milkValue,
       sugar: this.sugarValue,
       price: this.priceCalculatedValue,
-      available: this.available
+      available: this.available,
+      custom: true
     }
 
     this.coffeeInCreation = true;
-    this.coffeeService.createCustomCoffee(coffee).subscribe((coffee: Coffee) => {
+    this.coffeeService.createCustomCoffee(coffee).subscribe((data: any) => {
       this.coffeeInCreation = false;
+
+      if (!data.create)
+        alert("Impossible to create your prefered coffee! Check the name or something else!");
     });
   }
 }

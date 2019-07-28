@@ -1,4 +1,9 @@
 html, body {
     height: 100vh;
     margin: 0px;
+    color: white;
+}
+
+button {
+    background: lightgray;
 }

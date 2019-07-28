@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Coffee } from '../graphql/coffee';
 import { CoffeeService } from '../services/coffee.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'coffee-machine',
   templateUrl: './coffee-machine.component.html',
   styleUrls: ['./coffee-machine.component.css']
 })
-export class CoffeeMachineComponent implements OnInit {
+export class CoffeeMachineComponent {
 
-  constructor(private coffeeService: CoffeeService) { }
-
-  coffees$:  Observable<Coffee[]>;
+  coffees: Coffee[] = [];
   selectedCoffee: Coffee;
 
   price: number;
@@ -24,8 +21,14 @@ export class CoffeeMachineComponent implements OnInit {
 
   private timeoutHandle: any;
 
-  ngOnInit() {
-      this.coffees$ = this.coffeeService.getCoffees();
+  constructor(private coffeeService: CoffeeService) {
+    coffeeService.getCoffees().subscribe((coffees: Coffee[]) => {
+      this.coffees.push(...coffees);
+    });
+
+    coffeeService.listenForNewCoffee().subscribe((coffee: Coffee) => {
+      this.coffees.push(coffee);
+    })
   }
 
   onCoinsChange(coins: number) {
@@ -47,16 +50,16 @@ export class CoffeeMachineComponent implements OnInit {
         }, 2000);
       }
       else if (price <= this.coins) {
-  
+
         this.coins = 0;
         this.coffeeReady = false;
         this.coffeeMachineReady = false;
-        this.coffeeService.prepareCoffee(coffee.name, this.sugar, this.coins).subscribe((coffee: Coffee) => {
-  
+        this.coffeeService.prepareCoffee(coffee.name, coffee.custom ? coffee.sugar : this.sugar, this.coins).subscribe((coffee: Coffee) => {
+
           this.selectedCoffee = coffee;
           this.coffeeReady = true;
         });
-      }  
+      }
     });
   }
 

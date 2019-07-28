@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  graphql_path: 'http://localhost:2000/coffee-machine/graphql',
+  subscriptions_path: `ws://localhost:2000/coffee-machine/subscriptions`,
 };
 
 /*

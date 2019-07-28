@@ -25,7 +25,7 @@ export class DrinkReadyComponent implements OnInit {
   }
 
   onTakeACoffee() {
-    alert("Take a Coffee Please!");
+    alert("Take a Coffee please! It's the right time!");
   }
 
   onTakeIt() {

@@ -16,7 +16,7 @@ export class RangeSelectorComponent implements OnInit {
   value = 3;
 
   cleats: { color: string }[] = [];
-  private colorGreen = "green";
+  private colorGreen = "linear-gradient(to right top, #0f660f, #2a891b, #44ae27, #61d432, #7ffb3c)";
   private colorGray = "gray";
 
   constructor() { }  

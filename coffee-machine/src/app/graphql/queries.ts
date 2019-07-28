@@ -5,6 +5,8 @@ export const GET_COFFEES = gql`
         coffees {
             name,
             available
+            sugar
+            custom
         }
     }
 `; 
@@ -29,7 +31,8 @@ export const PREPARE_COFFEE_WITH_SUGAR = gql`
             name
             coffeePowder
             milk
-            sugar
+            sugar,
+            custom
         }
     }
 `;
@@ -39,7 +42,8 @@ export const PREPARE_COFFEE_WITHOUT_SUGAR = gql`
         coffee(name: $name, sugar: $sugar, coins: $coins) {
             name
             coffeePowder
-            milk
+            milk,
+            custom
         }
     }
 `;

@@ -11,8 +11,6 @@ export class CustomCoffeeService {
         if (this.coffees.has(coffee.name))
             return false;
 
-        console.log(coffee);
-
         this.coffees.set(coffee.name, coffee);
 
         return this.coffees.has(coffee.name);

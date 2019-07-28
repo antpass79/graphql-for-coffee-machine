@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    background: linear-gradient(to right top, #121211, #11100f, #100e0c, #100c0a, #0f0908);    
 }
 
 .coffee-machine {
@@ -18,4 +19,5 @@
     margin-bottom: 0px;
     border: 1px solid gray;
     padding: 3px;
+    background: linear-gradient(to right top, #2b322b, #26312a, #202f29, #1a2e29, #132c2a);
 }

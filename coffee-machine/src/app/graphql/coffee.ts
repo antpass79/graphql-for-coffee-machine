@@ -5,6 +5,7 @@ export interface Coffee {
     milk: number;
     coffeePowder: number;
     price: number;
+    custom: boolean;
 }
 
 export type Query = {

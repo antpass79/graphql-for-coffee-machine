@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Coffee, Query, Mutation } from "../graphql/coffee";
-import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
+import { Observable, of, forkJoin } from "rxjs";
+import { map, concat } from 'rxjs/operators';
 
 import { Apollo } from "apollo-angular";
 import { GET_COFFEES, GET_PRICE, PREPARE_COFFEE_WITH_SUGAR, PREPARE_COFFEE_WITHOUT_SUGAR, GET_COFFEE_NAMES } from "../graphql/queries";
 import { CREATE_CUSTOM_COFFEE } from "../graphql/mutations";
+import { COFFEE_CREATED } from "../graphql/subscriptions";
 
 @Injectable({
   providedIn: "root"
@@ -13,6 +14,12 @@ import { CREATE_CUSTOM_COFFEE } from "../graphql/mutations";
 export class CoffeeService {
 
   constructor(private apollo: Apollo) {
+  }
+
+  listenForNewCoffee() {
+    return this.apollo.subscribe({
+      query: COFFEE_CREATED
+    }).pipe(map((data) => data.data.coffeeCreated));
   }
 
   getCoffees(): Observable<Coffee[]> {
@@ -63,21 +70,18 @@ export class CoffeeService {
       );
   }
 
-  createCustomCoffee(coffee: Coffee): Observable<Coffee> {
+  createCustomCoffee(coffee: Coffee): Observable<any> {
     return this.apollo.mutate<Mutation>({
       mutation: CREATE_CUSTOM_COFFEE,
       variables: {
         name: coffee.name,
-        coffeePowder: coffee.coffeePowder,        
+        coffeePowder: coffee.coffeePowder,
         milk: coffee.milk,
         sugar: coffee.sugar,
         price: coffee.price,
-        available: coffee.available
+        available: coffee.available,
+        custom: coffee.custom
       }
-    });
-      // .valueChanges
-      // .pipe(
-      //   map(result => result.data.coffee)
-      // );
+    }).pipe(map(result => result.data));
   }
 }

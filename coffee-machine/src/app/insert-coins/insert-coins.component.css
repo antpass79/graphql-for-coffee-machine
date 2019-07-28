@@ -2,5 +2,5 @@
     width: 50px;
     height: 50px;
     margin: 3px;
-    background: darkseagreen;
+    background: linear-gradient(to right top, #75ae6f, #5fa776, #4aa07d, #379883, #279087);
 }

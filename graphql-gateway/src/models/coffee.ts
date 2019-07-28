@@ -4,5 +4,6 @@ export interface Coffee {
     coffeePowder: number,
     sugar: number,
     milk: number,
-    price: number
+    price: number,
+    custom: boolean
 }

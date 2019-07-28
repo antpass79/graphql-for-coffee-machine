@@ -6,7 +6,8 @@ export class DefaultCoffeeService {
             coffeePowder: 1,
             sugar: 3,
             milk: 0,
-            price: 30
+            price: 30,
+            custom: false
         },
         {
             name: 'Coffee with milk',
@@ -14,7 +15,8 @@ export class DefaultCoffeeService {
             coffeePowder: 1,
             sugar: 3,
             milk: 1,
-            price: 30
+            price: 30,
+            custom: false
         },
         {
             name: 'Cappuccino',
@@ -22,7 +24,8 @@ export class DefaultCoffeeService {
             coffeePowder: 1,
             sugar: 3,
             milk: 2,
-            price: 40
+            price: 40,
+            custom: false
         },
         {
             name: 'Double Coffee',
@@ -30,7 +33,8 @@ export class DefaultCoffeeService {
             coffeePowder: 2,
             sugar: 3,
             milk: 0,
-            price: 40
+            price: 40,
+            custom: false
         }
     ]
 

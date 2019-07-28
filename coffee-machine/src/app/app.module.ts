@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { ApolloModule } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryCache } from "apollo-cache-inmemory";
@@ -13,6 +13,12 @@ import { InsertCoinsComponent } from './insert-coins/insert-coins.component';
 import { ChooseSugarComponent } from './choose-sugar/choose-sugar.component';
 import { CoffeeDashboardComponent } from './coffee-dashboard/coffee-dashboard.component';
 import { RangeSelectorComponent } from './range-selector/range-selector.component';
+
+import { Apollo } from 'apollo-angular';
+import { split } from 'apollo-link';
+import { WebSocketLink } from 'apollo-link-ws';
+import { getMainDefinition } from 'apollo-utilities';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,19 +37,36 @@ import { RangeSelectorComponent } from './range-selector/range-selector.componen
     HttpLinkModule,
     HttpClientModule
   ],
-  providers: [
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: (httpLink: HttpLink) => {
-        return {
-          cache: new InMemoryCache(),
-          link: httpLink.create({
-            uri: "http://localhost:2000/coffee-machine/graphql"
-          })
-        }
-      },
-      deps: [HttpLink]
-    }],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(apollo: Apollo,
+    httpLink: HttpLink) {
+      const http = httpLink.create({
+        uri: environment.graphql_path
+      });
+  
+      const ws = new WebSocketLink({
+        uri: environment.subscriptions_path,
+        options: {
+          reconnect: true
+        }
+      });
+  
+      const link = split(
+        ({ query }) => {
+          const { kind, operation } = getMainDefinition(query);
+          return kind === 'OperationDefinition' && operation === 'subscription';
+        },
+        ws,
+        http,
+      );
+
+      apollo.create({
+        link,
+        cache: new InMemoryCache()
+      });
+    }
+}
