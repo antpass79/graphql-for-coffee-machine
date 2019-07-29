@@ -43,7 +43,7 @@ Under the coffee-machine folder, from a cmd with administrative privileges, type
 
 The default port for the front end is 4200:
 
-    http://localhost:4300/
+    http://localhost:4200/
 
 The default configurations are in:
 
