@@ -16,8 +16,6 @@ export class CoffeeDashboardComponent {
   @Input()
   milkValue = 1;
   @Input()
-  sugarValue = 3;
-  @Input()
   priceValue = 0;
   coffeeInCreation = false;
   priceCalculatedValue = 30;
@@ -53,10 +51,8 @@ export class CoffeeDashboardComponent {
       name: this.name,
       coffeePowder: this.coffeePowderValue,
       milk: this.milkValue,
-      sugar: this.sugarValue,
       price: this.priceCalculatedValue,
-      available: this.available,
-      custom: true
+      available: this.available
     }
 
     this.coffeeInCreation = true;

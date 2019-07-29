@@ -1,11 +1,10 @@
 export interface Coffee {
     name: string;
     available: boolean;
-    sugar: number;
+    sugar?: number;
     milk: number;
     coffeePowder: number;
     price: number;
-    custom: boolean;
 }
 
 export type Query = {

@@ -13,10 +13,6 @@
     <range-selector [(value)]="milkValue" [cleatNumber]="3"></range-selector>
   </div>
   <div class="section">
-    <label>Sugar</label>
-    <range-selector [(value)]="sugarValue" [cleatNumber]="5"></range-selector>
-  </div>
-  <div class="section">
     <label>Price {{priceCalculatedValue}}</label>
     <range-selector [value]="priceValue" [cleatNumber]="5" (valueChange)="onPriceChange($event)"></range-selector>
   </div>

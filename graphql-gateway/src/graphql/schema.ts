@@ -10,7 +10,7 @@ export const typeDefs = gql`
         coffeeCreated: Coffee
     },
     type Mutation {
-        create(name: String!, coffeePowder: Int, milk: Int, sugar: Int, price: Int!, available: Boolean, custom: Boolean): Boolean
+        create(name: String!, coffeePowder: Int, milk: Int, sugar: Int, price: Int!, available: Boolean): Boolean
     },
     type Coffee {
         name: String!
@@ -19,6 +19,5 @@ export const typeDefs = gql`
         sugar: Int
         milk: Int
         price: Int
-        custom: Boolean
     }
 `;

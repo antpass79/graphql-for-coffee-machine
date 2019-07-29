@@ -19,7 +19,7 @@ export class CoffeeService {
   listenForNewCoffee() {
     return this.apollo.subscribe({
       query: COFFEE_CREATED
-    }).pipe(map((data) => data.data.coffeeCreated));
+    }).pipe(map((result) => result.data.coffeeCreated));
   }
 
   getCoffees(): Observable<Coffee[]> {
@@ -79,8 +79,7 @@ export class CoffeeService {
         milk: coffee.milk,
         sugar: coffee.sugar,
         price: coffee.price,
-        available: coffee.available,
-        custom: coffee.custom
+        available: coffee.available
       }
     }).pipe(map(result => result.data));
   }

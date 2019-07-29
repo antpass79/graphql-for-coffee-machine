@@ -4,9 +4,7 @@ export const COFFEE_CREATED = gql`
     subscription coffeeCreated {
         coffeeCreated {
             name
-            available,
-            sugar,
-            custom
+            available
     }
 }`; 
 

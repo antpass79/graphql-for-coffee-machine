@@ -27,7 +27,7 @@ export const resolvers = {
         create: (root: any, coffee: Coffee) => {
             let created = customCoffeeService.addCoffee(coffee);
             if (created)
-                pubsub.publish(COFFEE_CREATED, { coffeeCreated: { name: coffee.name, available: coffee.available, sugar: coffee.sugar, custom: coffee.custom } });
+                pubsub.publish(COFFEE_CREATED, { coffeeCreated: { name: coffee.name, available: coffee.available } });
 
             return created;
         }

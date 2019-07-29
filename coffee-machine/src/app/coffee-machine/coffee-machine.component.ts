@@ -54,7 +54,7 @@ export class CoffeeMachineComponent {
         this.coins = 0;
         this.coffeeReady = false;
         this.coffeeMachineReady = false;
-        this.coffeeService.prepareCoffee(coffee.name, coffee.custom ? coffee.sugar : this.sugar, this.coins).subscribe((coffee: Coffee) => {
+        this.coffeeService.prepareCoffee(coffee.name, this.sugar, this.coins).subscribe((coffee: Coffee) => {
 
           this.selectedCoffee = coffee;
           this.coffeeReady = true;

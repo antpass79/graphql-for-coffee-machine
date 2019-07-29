@@ -23,9 +23,9 @@ Coffee Machine has the below components:
 Currently there are 2 different sources inside the graphql-gateway:
 
 - Default Coffees, managed by the default-coffee.service
-- Custom Coffees, managed byt the custom-coffee.service
+- Custom Coffees, managed by the custom-coffee.service
 
-A possible and better solution is to move these services inside other components in order to have the gateway clean from specific sources.
+A better solution is to move these services inside other components in order to have the gateway clean from specific sources.
 
 The gateway, through the resolver, should merge these sources.
 
@@ -33,11 +33,17 @@ The gateway, through the resolver, should merge these sources.
 
 Under the graphql-gateway folder, from a cmd with administrative privileges, type:
 
+    npm install
     npm start
 
 Under the coffee-machine folder, from a cmd with administrative privileges, type:
 
+    npm install
     ng serve
+
+The default port for the front end is 4200:
+
+    http://localhost:4300/
 
 The default configurations are in:
 
@@ -55,8 +61,24 @@ As a normal Coffee Machine, you can:
 
 In addition you can create your custom coffee:
 
-- choose sugar
-- choose milk
 - choose coffee powder
+- choose milk
 - other parameters
 
+## References
+
+- <https://graphql.org/>
+- <https://medium.com/@ajaysaini.official/why-graphql-886ba866ae75>
+- https://www.freecodecamp.org/news/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4/
+
+### Front end
+
+- <https://www.apollographql.com/docs/angular/basics/setup/>
+- <https://code-maze.com/consuming-graphql-api-angular/>
+- <https://graphql-code-generator.com/docs/getting-started/>
+- <https://medium.com/naresh-bhatia/graphql-concepts-i-wish-someone-explained-to-me-a-year-ago-514d5b3c0eab>
+
+### Gateway
+
+- <https://medium.com/@itReverie/subscriptions-in-graphql-with-apollo-2-0-6db44401f009>
+- <https://hashnode.com/post/building-a-nodejs-api-with-typescript-and-graphql-cjrrojjx200uqrxs1ngtitx9p>
