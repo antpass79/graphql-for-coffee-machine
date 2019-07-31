@@ -1,4 +1,4 @@
 <div class="drink-option">
-  <button class="drink-button" [class.unavailable-button]="!coffee.available" [disabled]="!coffee.available" (click)="onClick()">{{coffee.name}}</button>
-  <div class="drink-alert" [class.unavailable-circle]="!coffee.available"></div>
+  <button class="drink-button" [class.unavailable-button]="!coffee?.available" [disabled]="!coffee?.available" (click)="onClick()">{{coffee?.name}}</button>
+  <div class="drink-alert" [class.unavailable-circle]="!coffee?.available"></div>
 </div>

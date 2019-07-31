@@ -65,6 +65,16 @@ In addition you can create your custom coffee:
 - choose milk
 - other parameters
 
+## State Coffee Machine
+
+The below chart show the states of the Coffee Machine.
+
+![State Coffee Machine](assets/state-coffee-machine.jpg)
+
+Note:
+
+- the rest doesn't return
+
 ## References
 
 - <https://graphql.org/>

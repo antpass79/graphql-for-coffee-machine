@@ -22,4 +22,8 @@ describe('DrinkOptionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have coffee set to null', () => {
+    expect(component.coffee).toBeNull();
+  });
 });
