@@ -1,7 +1,7 @@
 <div class="range-selector">
-  <button #decrease (click)="onDecrease()" [disabled]="!canDecrease()">Less</button>
+  <button id="decrease" (click)="onDecrease()" [disabled]="!canDecrease()">Less</button>
   <div *ngFor="let cleat of cleats">
     <div class="cleat" [ngStyle]="{background: cleat.color}"></div>
   </div>
-  <button #increase (click)="onIncrease()" [disabled]="!canIncrease()">More</button>
+  <button id="increase" (click)="onIncrease()" [disabled]="!canIncrease()">More</button>
 </div>

@@ -75,6 +75,12 @@ Note:
 
 - the rest doesn't return
 
+## Tests
+
+To run some tests type:
+
+    ng test
+
 ## References
 
 - <https://graphql.org/>

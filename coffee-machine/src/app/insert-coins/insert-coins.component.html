@@ -1,10 +1,10 @@
 <div class="insert-coins">
   <div>
-    <button (click)="onInsert(5)">5 cents</button>
-    <button (click)="onInsert(10)">10 cents</button>
-    <button (click)="onInsert(20)">20 cents</button>
-    <button (click)="onInsert(50)">50 cents</button>
-    <button (click)="onReset()">Reset Coins</button>
+    <button id="insert5" (click)="onInsert(5)">5 cents</button>
+    <button id="insert10" (click)="onInsert(10)">10 cents</button>
+    <button id="insert20" (click)="onInsert(20)">20 cents</button>
+    <button id="insert50" (click)="onInsert(50)">50 cents</button>
+    <button id="reset" (click)="onReset()">Reset Coins</button>
   </div>
   <label>Coins {{coins}}</label>
 </div>

@@ -35,7 +35,8 @@ export class RangeSelectorComponent implements OnInit {
       this.cleats[index].color = this.colorGray;
     }
 
-    this.valueChange.emit(this.cleats.filter(cleat => cleat.color === this.colorGreen).length);
+    this.value = this.cleats.filter(cleat => cleat.color === this.colorGreen).length;
+    this.valueChange.emit(this.value);
   }
 
   canDecrease(): boolean {
@@ -48,7 +49,8 @@ export class RangeSelectorComponent implements OnInit {
       this.cleats[index].color = this.colorGreen;
     }
 
-    this.valueChange.emit(this.cleats.filter(cleat => cleat.color === this.colorGreen).length);
+    this.value = this.cleats.filter(cleat => cleat.color === this.colorGreen).length;
+    this.valueChange.emit(this.value);
   }
 
   canIncrease(): boolean {

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RangeSelectorComponent } from './range-selector.component';
 import { ElementRef } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('RangeSelectorComponent', () => {
   let component: RangeSelectorComponent;
@@ -19,10 +20,10 @@ describe('RangeSelectorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RangeSelectorComponent);
     component = fixture.componentInstance;
-    let de = fixture.debugElement;
-    decrease = de..query("#decrease");
-    increase = de.query(By.css('button'));
     fixture.detectChanges();
+
+    decrease = fixture.debugElement.query(By.css('#decrease'));
+    increase = fixture.debugElement.query(By.css('#increase'));
   });
 
   it('should create', () => {
@@ -38,8 +39,24 @@ describe('RangeSelectorComponent', () => {
   it('should have default value set to 3', () => {
     expect(component.value).toEqual(3);
   });
-  it('should have the value set to 3', () => {
-    spyOn('#decrease', 'click');
-    expect(component.value).toEqual(4);
-  });
+  it('should have the value set to 2 after less click', async(() => {
+    spyOn(component.valueChange, 'emit');
+
+    fixture.whenStable().then(() => {
+      decrease.nativeElement.click();
+
+      expect(component.value).toEqual(2);
+      expect(component.valueChange.emit).toHaveBeenCalledWith(2);
+    });
+  }));
+  it('should have the value set to 4 after more click', async(() => {
+    spyOn(component.valueChange, 'emit');
+
+    fixture.whenStable().then(() => {
+      increase.nativeElement.click();
+
+      expect(component.value).toEqual(4);
+      expect(component.valueChange.emit).toHaveBeenCalledWith(4);
+    });
+  }));
 });
