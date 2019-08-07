@@ -1,8 +1,5 @@
 {
     "SERVER_PORT": 2000,
     "GRAPH_PATH": "/coffee-machine/graphql",
-    "SUBSCRIPTIONS_PATH": "/coffee-machine/subscriptions",
-    "ORIGINS_WHITE_LIST": [
-        "http://localhost:4200"
-    ]
+    "SUBSCRIPTIONS_PATH": "/coffee-machine/subscriptions"
 }

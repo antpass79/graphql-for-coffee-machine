@@ -83,7 +83,7 @@ To run some tests on the client side, type:
 
 ## Docker
 
-Running on Docker wants be an easy test without complicate things that can be added in next steps. For the moment we can avoid configuration files or environment variables to have more customizable parameters.
+Running on Docker wants be an easy test for the Coffee Machine. Try it!
 
 ### graphql-gateway
 
@@ -113,11 +113,39 @@ Now, browsing the client at the below url, it's possible to take a coffee:
 
     http://localhost:8080
 
+### Docker Compose
+
+To semply the image building and container running processes, a docker-compose.yaml file could be useful.
+
+Under the graphql-for-coffee-machine folder, type:
+
+    docker-compose up --build
+
+if you have also build the images, or only:
+
+    docker-compose up
+
+if the images exists.
+
+As above, browsing the client at the below url, it's possible to take a coffee:
+
+    http://localhost:8080
+
+Some notes about the configuration:
+
+- It's possible to change the port of the server inside the container by the environment variable *SERVER_PORT*. Remember to change the mapping port of *coffe-machine-server* from the default:
+
+        "2000:2000"
+
+    to:
+
+        "2000:SERVER_PORT"
+
 ## References
 
 - <https://graphql.org/>
 - <https://medium.com/@ajaysaini.official/why-graphql-886ba866ae75>
-- https://www.freecodecamp.org/news/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4/
+- <https://www.freecodecamp.org/news/rest-apis-are-rest-in-peace-apis-long-live-graphql-d412e559d8e4/>
 
 ### Front end
 
@@ -131,6 +159,6 @@ Now, browsing the client at the below url, it's possible to take a coffee:
 - <https://medium.com/@itReverie/subscriptions-in-graphql-with-apollo-2-0-6db44401f009>
 - <https://hashnode.com/post/building-a-nodejs-api-with-typescript-and-graphql-cjrrojjx200uqrxs1ngtitx9p>
 
-### Docker
+### Containerization
 
 - <https://malcoded.com/posts/angular-docker/>

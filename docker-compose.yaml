@@ -1,0 +1,18 @@
+version: '3'
+services:
+  coffee-machine-client:
+    build: ./coffee-machine/.
+    image: coffee-machine-client:latest
+    container_name: coffee-machine-client
+    ports:
+    - "8080:80"
+  coffe-machine-server:
+    build:  ./graphql-gateway/.
+    image: coffee-machine-server:latest
+    container_name: coffee-machine-server
+    ports:
+    - "2000:2000"
+    environment:
+      SERVER_PORT: "2000"
+      GRAPH_PATH: "/coffee-machine/graphql"
+      SUBSCRIPTIONS_PATH: "/coffee-machine/subscriptions"
