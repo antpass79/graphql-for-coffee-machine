@@ -77,9 +77,41 @@ Note:
 
 ## Tests
 
-To run some tests type:
+To run some tests on the client side, type:
 
     ng test
+
+## Docker
+
+Running on Docker wants be an easy test without complicate things that can be added in next steps. For the moment we can avoid configuration files or environment variables to have more customizable parameters.
+
+### graphql-gateway
+
+The steps to dockerize the server are the following:
+
+- Go under the graphql-gateway folder and build the image:
+
+        docker build -t coffee-machine-server .
+
+- Run the container:
+
+        docker run -p 2000:2000 coffee-machine-server
+
+### coffee-machine
+
+The steps to dockerize the client are the following:
+
+- Go under the coffee-machine folder and build the image:
+
+        docker build -t coffee-machine-client .
+
+- Run the container:
+
+        docker run -p 8080:80 coffee-machine-client
+
+Now, browsing the client at the below url, it's possible to take a coffee:
+
+    http://localhost:8080
 
 ## References
 
@@ -98,3 +130,7 @@ To run some tests type:
 
 - <https://medium.com/@itReverie/subscriptions-in-graphql-with-apollo-2-0-6db44401f009>
 - <https://hashnode.com/post/building-a-nodejs-api-with-typescript-and-graphql-cjrrojjx200uqrxs1ngtitx9p>
+
+### Docker
+
+- <https://malcoded.com/posts/angular-docker/>
